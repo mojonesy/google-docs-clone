@@ -16,8 +16,9 @@ const style = {
     p: 5,
 };
 
-export default function ModalComponent({ open, setOpen }) {
+export default function ModalComponent({ open, setOpen, title, setTitle, addData }) {
     const handleClose = () => setOpen(false);
+    
 
     return (
         <div>
@@ -31,10 +32,13 @@ export default function ModalComponent({ open, setOpen }) {
                     <input
                         placeholder='Add the Title'
                         className='add-input'
+                        onChange={(event) => setTitle(event.target.value)}
+                        value={title}
                     />
                     <div className='button-container'>
                         <button
                             className='add-docs'
+                            onClick={addData}
                         >
                             Add
                         </button>
